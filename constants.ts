@@ -1,0 +1,447 @@
+
+import { AITool, Category } from './types';
+
+export const CATEGORIES: Category[] = ['الكل', 'محادثة', 'صور', 'فيديو', 'صوت', 'برمجة', 'كتابة', 'أعمال'];
+
+export const AI_TOOLS: AITool[] = [
+  {
+    id: '1',
+    name: 'ChatGPT',
+    description: 'النموذج الأشهر من OpenAI للمحادثة والرد على الأسئلة وتوليد النصوص بجودة عالية.',
+    url: 'https://chatgpt.com',
+    category: 'محادثة',
+    tags: ['GPT-4o', 'OpenAI'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '2',
+    name: 'Midjourney',
+    description: 'الأداة الرائدة في تحويل النصوص إلى صور فنية مذهلة وواقعية جداً عبر ديسكورد.',
+    url: 'https://midjourney.com',
+    category: 'صور',
+    tags: ['فن', 'إبداع'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.8
+  },
+  {
+    id: '3',
+    name: 'Claude',
+    description: 'مساعد ذكي يتميز بقدرة هائلة على تحليل المستندات الطويلة والكتابة بأسلوب بشري راقٍ.',
+    url: 'https://claude.ai',
+    category: 'محادثة',
+    tags: ['Anthropic', 'تحليل'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '4',
+    name: 'Cursor',
+    description: 'محرر أكواد مبني على VS Code مدمج فيه الذكاء الاصطناعي لمساعدة المبرمجين بشكل ثوري.',
+    url: 'https://cursor.sh',
+    category: 'برمجة',
+    tags: ['برمجة', 'كود'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '5',
+    name: 'Runway Gen-3 Alpha',
+    description: 'أداة احترافية لتوليد فيديوهات سينمائية فائقة الواقعية من النصوص والصور.',
+    url: 'https://runwayml.com',
+    category: 'فيديو',
+    tags: ['سينما', 'فيديو'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.9
+  },
+  {
+    id: '6',
+    name: 'ElevenLabs',
+    description: 'أفضل منصة لتحويل النصوص إلى كلام واقعي جداً مع إمكانية استنساخ الأصوات بدقة مذهلة.',
+    url: 'https://elevenlabs.io',
+    category: 'صوت',
+    tags: ['صوت', 'تعليق'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '7',
+    name: 'Perplexity AI',
+    description: 'محرك بحث ذكي يقدم إجابات مباشرة مع المصادر، بديل عصري ومتقدم لمحرك بحث جوجل.',
+    url: 'https://perplexity.ai',
+    category: 'محادثة',
+    tags: ['search', 'بحث'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '8',
+    name: 'Flux.1',
+    description: 'نموذج توليد صور ثوري يتميز بدقة مذهلة في التفاصيل والنصوص داخل الصور.',
+    url: 'https://blackforestlabs.ai',
+    category: 'صور',
+    tags: ['Flux', 'BFL'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '9',
+    name: 'Gamma',
+    description: 'إنشاء عروض تقديمية ومواقع وصفحات بضغطة زر واحدة باستخدام الذكاء الاصطناعي.',
+    url: 'https://gamma.app',
+    category: 'أعمال',
+    tags: ['عرض', 'تصميم'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '10',
+    name: 'Bolt.new',
+    description: 'منصة برمجية تتيح لك بناء تطبيقات ويب كاملة ونشرها بمجرد كتابة الوصف.',
+    url: 'https://bolt.new',
+    category: 'برمجة',
+    tags: ['تطوير', 'ويب'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '11',
+    name: 'Suno AI',
+    description: 'توليد أغانٍ كاملة مع الكلمات والألحان في ثوانٍ معدودة بجودة إنتاج احترافية.',
+    url: 'https://suno.com',
+    category: 'صوت',
+    tags: ['موسيقى', 'أغاني'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '12',
+    name: 'v0.dev',
+    description: 'أداة من Vercel لتوليد واجهات المستخدم (UI) باستخدام React و Tailwind بمجرد الوصف.',
+    url: 'https://v0.dev',
+    category: 'برمجة',
+    tags: ['React', 'UI'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '13',
+    name: 'Grammarly',
+    description: 'مصحح لغوي ذكي يساعدك على تحسين كتابتك باللغة الإنجليزية وتدقيقها من الأخطاء.',
+    url: 'https://grammarly.com',
+    category: 'كتابة',
+    tags: ['تدقيق', 'لغة'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.6
+  },
+  {
+    id: '14',
+    name: 'Jasper',
+    description: 'منصة متطورة لكتابة المحتوى التسويقي والمقالات للشركات والمبدعين باحترافية.',
+    url: 'https://jasper.ai',
+    category: 'كتابة',
+    tags: ['كتابة', 'تسويق'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.5
+  },
+  {
+    id: '15',
+    name: 'Luma Dream Machine',
+    description: 'توليد فيديوهات واقعية جداً وحركية من النصوص والصور بدقة عالية.',
+    url: 'https://lumalabs.ai',
+    category: 'فيديو',
+    tags: ['فيديو', '3D'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '16',
+    name: 'DeepSeek',
+    description: 'نموذج لغوي قوي ومنافس يتميز بسرعته الفائقة وقدراته البرمجية والرياضية العالية.',
+    url: 'https://deepseek.com',
+    category: 'محادثة',
+    tags: ['محادثة', 'برمجة'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '17',
+    name: 'Krea AI',
+    description: 'أداة توليد صور وتحسين جودة (Upscale) فورية ومذهلة للمصممين.',
+    url: 'https://krea.ai',
+    category: 'صور',
+    tags: ['تصميم', 'توليد'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '18',
+    name: 'Kling AI',
+    description: 'منصة رائدة لتوليد فيديوهات سينمائية واقعية جداً تدعم الحركات المعقدة.',
+    url: 'https://klingai.com',
+    category: 'فيديو',
+    tags: ['فيديو', 'سينما'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '19',
+    name: 'Udio',
+    description: 'أداة مبتكرة لتوليد موسيقى كاملة بأعلى جودة صوتية ممكنة في مختلف الأنواع.',
+    url: 'https://udio.com',
+    category: 'صوت',
+    tags: ['موسيقى', 'إبداع'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '20',
+    name: 'HeyGen',
+    description: 'أفضل منصة لتوليد فيديوهات المتحدثين الرقميين (Avatar) مع مزامنة الشفاه.',
+    url: 'https://heygen.com',
+    category: 'فيديو',
+    tags: ['أفاتار', 'فيديو'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '21',
+    name: 'Groq',
+    description: 'أسرع محرك استدلال للذكاء اصطناعي في العالم، يولد ردوداً فورية للنماذج اللغوية.',
+    url: 'https://groq.com',
+    category: 'برمجة',
+    tags: ['سرعة', 'استدلال'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.9
+  },
+  {
+    id: '22',
+    name: 'Leonardo.ai',
+    description: 'منصة تصميم صور متكاملة تتيح لك التحكم الكامل في عملية التوليد والتحرير.',
+    url: 'https://leonardo.ai',
+    category: 'صور',
+    tags: ['صور', 'تصميم'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '23',
+    name: 'Ideogram',
+    description: 'أداة توليد صور متفوقة جداً في كتابة النصوص داخل الصور بدقة واحترافية.',
+    url: 'https://ideogram.ai',
+    category: 'صور',
+    tags: ['نصوص', 'تصميم'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '24',
+    name: 'Canva Magic Studio',
+    description: 'مجموعة أدوات ذكاء اصطناعي مدمجة في كانفا لتسهيل التصميم وتحرير المحتوى.',
+    url: 'https://canva.com',
+    category: 'أعمال',
+    tags: ['تصميم', 'سهولة'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '25',
+    name: 'Mistral Large',
+    description: 'نموذج لغوي أوروبي قوي يتميز بكفاءته العالية في التفكير والبرمجة.',
+    url: 'https://mistral.ai',
+    category: 'محادثة',
+    tags: ['OpenSource', 'AI'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.6
+  },
+  {
+    id: '26',
+    name: 'Pika Art',
+    description: 'منصة إبداعية لتحويل النصوص والصور إلى رسوم متحركة وفيديوهات فنية.',
+    url: 'https://pika.art',
+    category: 'فيديو',
+    tags: ['تحريك', 'فيديو'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.6
+  },
+  {
+    id: '27',
+    name: 'NotebookLM',
+    description: 'مفكرة ذكية من جوجل تتيح لك تحميل مستنداتك وتحويلها إلى نقاشات صوتية أو ملخصات.',
+    url: 'https://notebooklm.google',
+    category: 'كتابة',
+    tags: ['بحث', 'تلخيص'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '28',
+    name: 'Descript',
+    description: 'محرر فيديو وصوت ثوري يعتمد على تعديل النص المكتوب للتحكم في الوسائط.',
+    url: 'https://descript.com',
+    category: 'فيديو',
+    tags: ['مونتاج', 'بودكاست'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '29',
+    name: 'Phind',
+    description: 'محرك بحث ذكي مخصص للمبرمجين يقدم حلولاً برمجية مباشرة مع شرح الكود.',
+    url: 'https://phind.com',
+    category: 'برمجة',
+    tags: ['برمجة', 'بحث'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '30',
+    name: 'Character.ai',
+    description: 'منصة تتيح لك التحدث مع شخصيات خيالية أو واقعية مبرمجة بالذكاء الاصطناعي.',
+    url: 'https://character.ai',
+    category: 'محادثة',
+    tags: ['ترفيه', 'شخصيات'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.5
+  },
+  {
+    id: '31',
+    name: 'Framer AI',
+    description: 'حول أفكارك إلى مواقع ويب كاملة بتصميم عصري جاهز للنشر في دقائق.',
+    url: 'https://framer.com',
+    category: 'أعمال',
+    tags: ['ويب', 'تصميم'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.6
+  },
+  {
+    id: '32',
+    name: 'Grok-2',
+    description: 'النموذج الأحدث من xAI المدمج في منصة X، يتميز بالذكاء العالي والوصول للبيانات اللحظية.',
+    url: 'https://x.ai',
+    category: 'محادثة',
+    tags: ['Realtime', 'xAI'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.7
+  },
+  {
+    id: '33',
+    name: 'Magnific AI',
+    description: 'أقوى أداة في العالم لتحسين جودة الصور وإضافة تفاصيل خيالية مذهلة بدقة 4K.',
+    url: 'https://magnific.ai',
+    category: 'صور',
+    tags: ['Upscale', 'تصميم'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.9
+  },
+  {
+    id: '34',
+    name: 'Copy.ai',
+    description: 'مساعد كتابة محتوى تسويقي احترافي يساعدك في كتابة الإعلانات والمنشورات.',
+    url: 'https://copy.ai',
+    category: 'كتابة',
+    tags: ['تسويق', 'كتابة'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.6
+  },
+  {
+    id: '35',
+    name: 'Synthesia',
+    description: 'منصة احترافية لإنشاء فيديوهات تدريبية وتسويقية باستخدام أفاتار رقمي ذكي.',
+    url: 'https://synthesia.io',
+    category: 'فيديو',
+    tags: ['أعمال', 'فيديو'],
+    imageUrl: '',
+    isFree: false,
+    rating: 4.7
+  },
+  {
+    id: '36',
+    name: 'Replit Agent',
+    description: 'عميل ذكي يقوم ببناء تطبيقات كاملة من الصفر داخل بيئة ريبليت البرمجية.',
+    url: 'https://replit.com',
+    category: 'برمجة',
+    tags: ['برمجة', 'Agent'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '37',
+    name: 'Riffusion',
+    description: 'توليد موسيقى وألحان مبتكرة عبر تحويل الصور والمطالبات النصية إلى أصوات.',
+    url: 'https://riffusion.com',
+    category: 'صوت',
+    tags: ['موسيقى', 'إبداع'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.4
+  },
+  {
+    id: '38',
+    name: 'Otter.ai',
+    description: 'مساعد اجتماعات يقوم بتسجيل الاجتماعات الصوتية وتحويلها إلى نصوص ملخصة تلقائياً.',
+    url: 'https://otter.ai',
+    category: 'أعمال',
+    tags: ['اجتماعات', 'نصوص'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  },
+  {
+    id: '39',
+    name: 'Adobe Firefly',
+    description: 'أدوات الذكاء الاصطناعي التوليدي من أدوبي لتحرير وتوليد الصور باحترافية.',
+    url: 'https://firefly.adobe.com',
+    category: 'صور',
+    tags: ['تصميم', 'Adobe'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.8
+  },
+  {
+    id: '40',
+    name: 'ChatHub',
+    description: 'تطبيق يتيح لك الدردشة مع عدة نماذج ذكاء اصطناعي (ChatGPT, Claude, Gemini) في آن واحد.',
+    url: 'https://chathub.gg',
+    category: 'محادثة',
+    tags: ['مقارنة', 'أدوات'],
+    imageUrl: '',
+    isFree: true,
+    rating: 4.7
+  }
+];
