@@ -2,7 +2,8 @@
 import { GoogleGenAI } from "@google/genai";
 
 export const getGeminiRecommendation = async (userPrompt: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+  // Always use a named parameter and obtain the API key exclusively from process.env.API_KEY.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const systemInstruction = `
     أنت خبير في أدوات الذكاء الاصطناعي. مهمتك هي مساعدة المستخدم في العثور على أفضل أداة لمهمته.
@@ -14,6 +15,7 @@ export const getGeminiRecommendation = async (userPrompt: string) => {
   `;
 
   try {
+    // For basic text tasks, 'gemini-3-flash-preview' is the appropriate model.
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: userPrompt,
@@ -23,6 +25,7 @@ export const getGeminiRecommendation = async (userPrompt: string) => {
       },
     });
 
+    // Directly access the .text property on the GenerateContentResponse object.
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
